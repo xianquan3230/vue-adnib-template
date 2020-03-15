@@ -25,6 +25,15 @@
         sortable
         width="180"
       />
+      <!--<template slot-scope="scope">
+      <el-popover trigger="hover" placement="top">
+        <p>姓名: {{ scope.row.name }}</p>
+        <p>住址: {{ scope.row.address }}</p>
+        <div slot="reference" class="name-wrapper">
+          <el-tag size="medium">{{ scope.row.name }}</el-tag>
+        </div>
+      </el-popover>
+    </template>-->
       <el-table-column
         prop="address"
         label="地址"
@@ -47,12 +56,27 @@
 export default {
   name: 'UserList',
   props: ['id'],
+  filters: {
+    statusFilter(status) {
+      const statusMap = {
+        published: 'success',
+        draft: 'gray',
+        deleted: 'danger'
+      }
+      return statusMap[status]
+    }
+  },
   beforeRouteEnter: function(to, from, next) {
     console.log('页面进入前')
     next(vm => {
       vm.getData()
     })
   },
+  /*
+  beforeRouteLeave(){
+      console.log("页面离开前")
+      next();
+    },*/
   data() {
     return {
       tableData: [{
@@ -111,24 +135,18 @@ export default {
       }]
     }
   },
-  /* beforeRouteLeave(){
-       console.log("页面离开前")
-       next();
-     },*/
   methods: {
+    /*
     getData: function() {
       this.axios({
         method: 'get',
-        url: 'http://localhost:8080/static/data.json'
+        url: 'http://localhost:9528/static/data.json'
       }).then(function(repos) {
         console.log(repos)
       }).catch(function(error) {
         console.log(error)
       })
-    }
-  },
-  // eslint-disable-next-line no-dupe-keys
-  methods: {
+    },*/
     load(tree, treeNode, resolve) {
       setTimeout(() => {
         resolve([
@@ -146,10 +164,14 @@ export default {
         ])
       }, 1000)
     },
-    methods: {
-      goBack() {
-        console.log('go back')
-      }
+    goBack() {
+      console.log('go back')
+    },
+    handleEdit(index, row) {
+      console.log(index, row)
+    },
+    handleDelete(index, row) {
+      console.log(index, row)
     }
   }
 }

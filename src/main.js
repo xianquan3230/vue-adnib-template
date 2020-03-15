@@ -14,6 +14,9 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
+import axios from 'axios'
+/* 原型链 */
+Vue.prototype.axios = axios
 
 /**
  * If you don't want to use mock-server
