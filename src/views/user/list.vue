@@ -36,12 +36,13 @@
 export default {
   name: 'UserList',
   props: ['id'],
+  /*
   beforeRouteEnter(to, from, next) {
     console.log('页面进入前')
     next(vm => {
       vm.getData()
     })
-  },
+  },*/
   data() {
     return {
       tableData: [{
@@ -105,19 +106,17 @@ export default {
        next();
      },*/
   methods: {
+    /*
     getData: function() {
       this.axios({
         method: 'get',
-        url: 'http://localhost:8080/static/data.json'
+        url: 'http://localhost:9528/static/data.json'
       }).then(function(repos) {
         console.log(repos)
       }).catch(function(error) {
         console.log(error)
       })
-    }
-  },
-  // eslint-disable-next-line no-dupe-keys
-  methods: {
+    },*/
     load(tree, treeNode, resolve) {
       setTimeout(() => {
         resolve([
@@ -135,10 +134,8 @@ export default {
         ])
       }, 1000)
     },
-    methods: {
-      goBack() {
-        console.log('go back')
-      }
+    goBack() {
+      console.log('go back')
     }
   }
 }
