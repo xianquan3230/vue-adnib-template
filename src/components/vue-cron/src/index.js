@@ -1,11 +1,11 @@
-import vueCron from './index.vue'
+import vueCron from './vueCron.vue'
 import Language from '../src/language'
 
 export let cron = vueCron
 
 export default {
   name: 'vueCron',
-  props: ['data', 'i18n'],
+  props: ['data'],
   data() {
     return {
       second: {

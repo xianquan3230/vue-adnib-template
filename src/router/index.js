@@ -82,6 +82,18 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/rotationCube',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'rotationCube',
+        component: () => import('@/views/rotationCube/index'),
+        meta: { title: 'Form', icon: 'form' }
+      }
+    ]
+  },
 
   {
     path: '/nested',

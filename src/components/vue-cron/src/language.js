@@ -36,7 +36,8 @@
   }
   Week: ['天', '一', '二', '三', '四', '五', '六'].map(function (e) {
     return '星期' + e
-  }),
+  })
+
   Month: {
     name = '月',
     every = '每一月',

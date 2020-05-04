@@ -22,6 +22,9 @@
       <el-form-item label="Instant delivery">
         <el-switch v-model="form.delivery" />
       </el-form-item>
+      <el-form-item>
+        vueCron<vue-cron id="vueCron" :data="form.vueCron"></vue-cron>
+      </el-form-item>
       <el-form-item label="Activity type">
         <el-checkbox-group v-model="form.type">
           <el-checkbox label="Online activities" name="type" />
@@ -48,7 +51,9 @@
 </template>
 
 <script>
+import VueCron from '../../components/vue-cron/src/vueCron'
 export default {
+  components: {VueCron},
   data() {
     return {
       form: {
@@ -59,7 +64,8 @@ export default {
         delivery: false,
         type: [],
         resource: '',
-        desc: ''
+        desc: '',
+        vueCron
       }
     }
   },
